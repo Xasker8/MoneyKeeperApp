@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyKeeper", "MoneyKeeper\MoneyKeeper.csproj", "{E70188C6-74B3-4DB4-A447-17E1A7B9DE81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyKeeper", "MoneyKeeper\MoneyKeeper.csproj", "{E70188C6-74B3-4DB4-A447-17E1A7B9DE81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyKeeper.Data", "MoneyKeeper.Data\MoneyKeeper.Data.csproj", "{030CC480-57DC-40CE-B2E2-FA8422973415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyKeeper.Data", "MoneyKeeper.Data\MoneyKeeper.Data.csproj", "{030CC480-57DC-40CE-B2E2-FA8422973415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyKeeper.Services", "MoneyKeeper.Services\MoneyKeeper.Services.csproj", "{04E37B0D-7E18-438E-8870-AB17CD818932}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyKeeper.Contracts", "MoneyKeeper.Contracts\MoneyKeeper.Contracts.csproj", "{9D30EA96-0C58-4120-A7E2-0FD5BE40353A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{030CC480-57DC-40CE-B2E2-FA8422973415}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{030CC480-57DC-40CE-B2E2-FA8422973415}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{030CC480-57DC-40CE-B2E2-FA8422973415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E37B0D-7E18-438E-8870-AB17CD818932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E37B0D-7E18-438E-8870-AB17CD818932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E37B0D-7E18-438E-8870-AB17CD818932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E37B0D-7E18-438E-8870-AB17CD818932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D30EA96-0C58-4120-A7E2-0FD5BE40353A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D30EA96-0C58-4120-A7E2-0FD5BE40353A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D30EA96-0C58-4120-A7E2-0FD5BE40353A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D30EA96-0C58-4120-A7E2-0FD5BE40353A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
