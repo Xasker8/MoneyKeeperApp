@@ -1,7 +1,7 @@
 ﻿using MoneyKeeper.Contracts.Requests;
 using MoneyKeeper.Contracts.Responses;
 
-namespace MoneyKeeper.Services.Transaction
+namespace MoneyKeeper.Services.TransactionService
 {
     public interface ITransactionService
     {

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MoneyKeeper.Contracts\MoneyKeeper.Contracts.csproj" />
+    <ProjectReference Include="..\MoneyKeeper.Data\MoneyKeeper.Data.csproj" />
   </ItemGroup>
 
 </Project>

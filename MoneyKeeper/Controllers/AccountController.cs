@@ -3,7 +3,9 @@ using MoneyKeeper.Contracts.Enums;
 using MoneyKeeper.Contracts.Requests;
 using MoneyKeeper.Contracts.Responses;
 using MoneyKeeper.Services.CategoryService;
-using MoneyKeeper.Services.Transaction;
+using MoneyKeeper.Services.CurrencyService;
+using MoneyKeeper.Services.TransactionService;
+using MoneyKeeper.Services.UserService;
 using Services.AccountService;
 using System.Net;
 
@@ -29,7 +31,16 @@ namespace MoneyKeeper.Controllers
             {
                 return new StandardResponse<string>(HttpStatusCode.NotAcceptable, null, "Reqest is not provided or incorrect").Result;
             }
-            //TODO: проверка на userId и currencyId
+
+            //if(!await _currencyService.CurrencyExists(request.CurrencyId))
+            //{
+            //    return new StandardResponse<string>(HttpStatusCode.BadRequest, null, "Currency with provided id is not exists").Result;
+            //}
+
+            //if (!await _userService.UserExists(request.UserId))
+            //{
+            //    return new StandardResponse<string>(HttpStatusCode.BadRequest, null, "User with provided id is not exists").Result;
+            //}
 
             var account = await _accountService.CreateAccount(request);
             var userCategories = await _categoryService.GetServiceCategoryByUserId(request.UserId);
@@ -51,8 +62,8 @@ namespace MoneyKeeper.Controllers
         {
             var account = await _accountService.GetAccountById(id);
 
+            //TODO: пооверка на id?
             return new StandardResponse<AccountResponse>(HttpStatusCode.OK, account, "Success").Result;
-
         }
 
         [HttpPost("UpdateAccount")]
@@ -76,7 +87,7 @@ namespace MoneyKeeper.Controllers
             {
                 await _transactionService.MarkTransactionAsDeleted(transactionId);
             }
-
+            //TODO: пооверка на id?
             await _accountService.MarkAccountAsDeleted(id);
 
             return new StandardResponse<bool>(HttpStatusCode.OK, true, "Success").Result;
