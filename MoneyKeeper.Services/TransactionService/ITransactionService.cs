@@ -5,11 +5,11 @@ namespace MoneyKeeper.Services.TransactionService
 {
     public interface ITransactionService
     {
-        Task<TransactionResponse> CreateTransaction(TransactionCreateRequest request);
-        Task<TransactionResponse> GetTransactionById(int id);
-        Task<List<TransactionResponse>> GetTransactionByAccountId(int id);
-        Task<TransactionResponse> UpdateTransaction(TransactionUpdateRequest request);
-        Task MarkTransactionAsDeleted(int id);
+        Task<TransactionResponse> CreateTransactionAsync(TransactionCreateRequest request);
+        Task<TransactionResponse> GetTransactionByIdAsync(int id);
+        Task<List<TransactionResponse>> GetTransactionByAccountIdAsync(int id);
+        Task<TransactionResponse> UpdateTransactionAsync(TransactionUpdateRequest request);
+        Task MarkTransactionAsDeletedAsync(int id);
     }
     //TODO: не добавлять транзакции с сервисными категориями(наверное проверка в контроллере, с фронта не может прийти сервисная категория) 
 }

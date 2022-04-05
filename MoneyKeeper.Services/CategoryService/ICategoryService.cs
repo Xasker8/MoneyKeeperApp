@@ -6,15 +6,15 @@ namespace MoneyKeeper.Services.CategoryService
     public interface ICategoryService
     {
         #region Categories
-        Task<CategoryResponse> CreateCategory(CategoryCreateRequest request);
-        Task<CategoryResponse> GetCategoryById(int id);
-        Task<List<CategoryResponse>> GetServiceCategoryByUserId(int id);
-        Task<CategoryResponse> UpdateCategory(CategoryUpdateRequest request);
-        Task MarkCategoryAsDeleted(int id);
+        Task<CategoryResponse> CreateCategoryAsync(CategoryCreateRequest request);
+        Task<CategoryResponse> GetCategoryByIdAsync(int id);
+        Task<List<CategoryResponse>> GetServiceCategoryByUserIdAsync(int id);
+        Task<CategoryResponse> UpdateCategoryAsync(CategoryUpdateRequest request);
+        Task MarkCategoryAsDeletedAsync(int id);
         #endregion
 
         #region DefaultCategories
-        Task<List<DefaultCategoryResponse>> GetAllDefaultCategories();
+        Task<List<DefaultCategoryResponse>> GetAllDefaultCategoriesAsync();
         #endregion
 
         //TODO: не отдавать фронту сервисные категории, сервисные категории нельзя редактировать (Initial Value), сервисные категории нельзя создавать обычным изерам

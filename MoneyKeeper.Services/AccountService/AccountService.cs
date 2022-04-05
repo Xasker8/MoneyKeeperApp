@@ -19,7 +19,7 @@ namespace MoneyKeeper.Services.AccountService
             _mapper = mapper;
         }
 
-        public async Task<AccountResponse> CreateAccount(AccountCreateRequest request)
+        public async Task<AccountResponse> CreateAccountAsync(AccountCreateRequest request)
         {
             var account = _mapper.Map<Account>(request);
             _context.Accounts.Add(account);
@@ -29,7 +29,7 @@ namespace MoneyKeeper.Services.AccountService
             return result;
         }
 
-        public async Task<AccountResponse> GetAccountById(int id)
+        public async Task<AccountResponse> GetAccountByIdAsync(int id)
         {
             var account = await _context.Accounts.SingleAsync(account => account.Id == id && !account.IsDeleted);
             var result = _mapper.Map<AccountResponse>(account);
@@ -37,7 +37,7 @@ namespace MoneyKeeper.Services.AccountService
             return result;
         }
 
-        public async Task<List<AccountResponse>> GetAccountsByUserId(int id)
+        public async Task<List<AccountResponse>> GetAccountsByUserIdAsync(int id)
         {
             var accounts = _context.Accounts.Where(account => account.UserId == id && !account.IsDeleted);
             var result = await accounts.Select(account => _mapper.Map<AccountResponse>(account)).ToListAsync();
@@ -45,7 +45,7 @@ namespace MoneyKeeper.Services.AccountService
             return result;
         }
 
-        public async Task MarkAccountAsDeleted(int id)
+        public async Task MarkAccountAsDeletedAsync(int id)
         {
             var account = await _context.Accounts.SingleAsync(account => account.Id == id);
             account.IsDeleted = true;
@@ -53,7 +53,7 @@ namespace MoneyKeeper.Services.AccountService
             await _context.SaveChangesAsync();
         }
 
-        public async Task<AccountResponse> UpdateAccount(AccountUpdateRequest request)
+        public async Task<AccountResponse> UpdateAccountAsync(AccountUpdateRequest request)
         {
             var account = await _context.Accounts.SingleAsync(account => account.Id == request.Id);
             account.CurrencyId = request.CurrencyId;

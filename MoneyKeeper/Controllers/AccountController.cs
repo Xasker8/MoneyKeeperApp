@@ -42,10 +42,10 @@ namespace MoneyKeeper.Controllers
             //    return new StandardResponse<string>(HttpStatusCode.BadRequest, null, "User with provided id is not exists").Result;
             //}
 
-            var account = await _accountService.CreateAccount(request);
-            var userCategories = await _categoryService.GetServiceCategoryByUserId(request.UserId);
+            var account = await _accountService.CreateAccountAsync(request);
+            var userCategories = await _categoryService.GetServiceCategoryByUserIdAsync(request.UserId);
             var initValueCategory = userCategories.Single(category => category.Name.Equals(DefaultCategoryEnum.InitialValue));
-            await _transactionService.CreateTransaction(new TransactionCreateRequest
+            await _transactionService.CreateTransactionAsync(new TransactionCreateRequest
             {
                 AccountId = account.Id,
                 CategoryId = initValueCategory.Id,
@@ -60,7 +60,7 @@ namespace MoneyKeeper.Controllers
         [HttpGet("Account/{id}")]
         public async Task<IActionResult> GetAccountById(int id)
         {
-            var account = await _accountService.GetAccountById(id);
+            var account = await _accountService.GetAccountByIdAsync(id);
 
             //TODO: пооверка на id?
             return new StandardResponse<AccountResponse>(HttpStatusCode.OK, account, "Success").Result;
@@ -69,7 +69,7 @@ namespace MoneyKeeper.Controllers
         [HttpGet("UserAccounts/{id}")]
         public async Task<IActionResult> GetAccountsByUserId(int id)
         {
-            var accounts= await _accountService.GetAccountsByUserId(id);
+            var accounts= await _accountService.GetAccountsByUserIdAsync(id);
 
             //TODO: пооверка на id?
             return new StandardResponse<List<AccountResponse>>(HttpStatusCode.OK, accounts, "Success").Result;
@@ -83,7 +83,7 @@ namespace MoneyKeeper.Controllers
                 return new StandardResponse<string>(HttpStatusCode.NotAcceptable, null, "Reqest is not provided or incorrect").Result;
             }
             //TODO: Проверка на CurrencyId
-            var account = await _accountService.UpdateAccount(request);
+            var account = await _accountService.UpdateAccountAsync(request);
 
             return new StandardResponse<AccountResponse>(HttpStatusCode.OK, account, "Success").Result;
         }
@@ -91,13 +91,13 @@ namespace MoneyKeeper.Controllers
         [HttpDelete("Account/{id}")]
         public async Task<IActionResult> DeleteAccount(int id)
         {
-            var transactions = await _transactionService.GetTransactionByAccountId(id);
+            var transactions = await _transactionService.GetTransactionByAccountIdAsync(id);
             foreach(var transactionId in transactions.Select(transaction => transaction.Id))
             {
-                await _transactionService.MarkTransactionAsDeleted(transactionId);
+                await _transactionService.MarkTransactionAsDeletedAsync(transactionId);
             }
             //TODO: пооверка на id?
-            await _accountService.MarkAccountAsDeleted(id);
+            await _accountService.MarkAccountAsDeletedAsync(id);
 
             return new StandardResponse<bool>(HttpStatusCode.OK, true, "Success").Result;
         }

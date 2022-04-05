@@ -5,11 +5,11 @@ namespace Services.AccountService
 {
     public interface IAccountService
     {
-        Task<AccountResponse> CreateAccount(AccountCreateRequest request);
-        Task<AccountResponse> GetAccountById(int id);
-        Task<List<AccountResponse>> GetAccountsByUserId(int id);
-        Task<AccountResponse> UpdateAccount(AccountUpdateRequest request);
-        Task MarkAccountAsDeleted(int id);
+        Task<AccountResponse> CreateAccountAsync(AccountCreateRequest request);
+        Task<AccountResponse> GetAccountByIdAsync(int id);
+        Task<List<AccountResponse>> GetAccountsByUserIdAsync(int id);
+        Task<AccountResponse> UpdateAccountAsync(AccountUpdateRequest request);
+        Task MarkAccountAsDeletedAsync(int id);
     }
     //TODO: Не выводить IsDeleted, это везде
 }
