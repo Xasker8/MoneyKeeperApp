@@ -8,7 +8,7 @@ namespace MoneyKeeper.Services.CategoryService
         #region Categories
         Task<CategoryResponse> CreateCategoryAsync(CategoryCreateRequest request);
         Task<CategoryResponse> GetCategoryByIdAsync(int id);
-        Task<List<CategoryResponse>> GetServiceCategoryByUserIdAsync(int id);
+        Task<List<CategoryResponse>> GetServiceCategoriesByUserIdAsync(int id);
         Task<CategoryResponse> UpdateCategoryAsync(CategoryUpdateRequest request);
         Task MarkCategoryAsDeletedAsync(int id);
         #endregion

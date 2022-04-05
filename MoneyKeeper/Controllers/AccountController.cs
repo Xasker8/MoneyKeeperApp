@@ -41,7 +41,7 @@ namespace MoneyKeeper.Controllers
             //}
 
             var account = await _accountService.CreateAccountAsync(request);
-            var userCategories = await _categoryService.GetServiceCategoryByUserIdAsync(request.UserId);
+            var userCategories = await _categoryService.GetServiceCategoriesByUserIdAsync(request.UserId);
             var initValueCategory = userCategories.Single(category => category.Name.Equals(DefaultCategoryEnum.InitialValue));
             await _transactionService.CreateTransactionAsync(new TransactionCreateRequest
             {

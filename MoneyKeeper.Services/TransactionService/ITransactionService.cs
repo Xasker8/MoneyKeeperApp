@@ -8,6 +8,7 @@ namespace MoneyKeeper.Services.TransactionService
         Task<TransactionResponse> CreateTransactionAsync(TransactionCreateRequest request);
         Task<TransactionResponse> GetTransactionByIdAsync(int id);
         Task<List<TransactionResponse>> GetTransactionByAccountIdAsync(int id);
+        Task<List<TransactionResponse>> GetTransactionByCategoryIdAsync(int id);
         Task<TransactionResponse> UpdateTransactionAsync(TransactionUpdateRequest request);
         Task MarkTransactionAsDeletedAsync(int id);
     }

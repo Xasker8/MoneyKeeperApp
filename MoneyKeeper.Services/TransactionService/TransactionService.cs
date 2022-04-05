@@ -44,6 +44,14 @@ namespace MoneyKeeper.Services.TransactionService
             return result;
         }
 
+        public async Task<List<TransactionResponse>> GetTransactionByCategoryIdAsync(int id)
+        {
+            var transactions = _context.Transactions.Where(transaction => transaction.CategoryId == id && !transaction.IsDeleted);
+            var result = await transactions.Select(transaction => _mapper.Map<TransactionResponse>(transaction)).ToListAsync();
+
+            return result;
+        }
+
         public async Task MarkTransactionAsDeletedAsync(int id)
         {
             var transaction = await _context.Transactions.SingleAsync(transaction => transaction.Id == id);

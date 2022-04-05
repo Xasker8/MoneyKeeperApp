@@ -19,6 +19,11 @@ namespace MoneyKeeper.Contracts.AutoMapper
 
             CreateMap<TransactionCreateRequest, Transaction>();
             CreateMap<Transaction, TransactionResponse>();
+
+            CreateMap<CategoryCreateRequest, Category>();
+            CreateMap<Category, CategoryResponse>();
+
+            CreateMap<Category, DefaultCategoryResponse>();
         }
     }
 }

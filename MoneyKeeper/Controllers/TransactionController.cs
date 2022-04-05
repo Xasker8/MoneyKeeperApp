@@ -61,9 +61,10 @@ namespace MoneyKeeper.Controllers
             {
                 return new StandardResponse<string>(HttpStatusCode.NotAcceptable, null, "Reqest is not provided or incorrect").Result;
             }
-
+            var oldTransaction = await _transactionService.GetTransactionByIdAsync(request.Id);
+            var oldCategory = await _categoryService.GetCategoryByIdAsync(oldTransaction.CategoryId);
             var category = await _categoryService.GetCategoryByIdAsync(request.CategoryId);
-            if (category.Type == (int)CategoryTypeEnum.Service)
+            if (category.Type != oldCategory.Type && category.Type == (int)CategoryTypeEnum.Service)
             {
                 return new StandardResponse<string>(HttpStatusCode.NotAcceptable, null, "Incorrect category").Result;
             }
