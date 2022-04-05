@@ -55,7 +55,7 @@ namespace MoneyKeeper.Services.AccountService
 
         public async Task<AccountResponse> UpdateAccountAsync(AccountUpdateRequest request)
         {
-            var account = await _context.Accounts.SingleAsync(account => account.Id == request.Id);
+            var account = await _context.Accounts.SingleAsync(account => account.Id == request.Id && !account.IsDeleted);
             account.CurrencyId = request.CurrencyId;
             account.Name = request.Name;
             _context.Update(account);

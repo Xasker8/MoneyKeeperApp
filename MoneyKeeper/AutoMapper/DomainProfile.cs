@@ -16,6 +16,9 @@ namespace MoneyKeeper.Contracts.AutoMapper
         {
             CreateMap<AccountCreateRequest, Account>();
             CreateMap<Account, AccountResponse>();
+
+            CreateMap<TransactionCreateRequest, Transaction>();
+            CreateMap<Transaction, TransactionResponse>();
         }
     }
     //public class DomainProfile : Profile
