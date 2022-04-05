@@ -3,9 +3,7 @@ using MoneyKeeper.Contracts.Enums;
 using MoneyKeeper.Contracts.Requests;
 using MoneyKeeper.Contracts.Responses;
 using MoneyKeeper.Services.CategoryService;
-using MoneyKeeper.Services.CurrencyService;
 using MoneyKeeper.Services.TransactionService;
-using MoneyKeeper.Services.UserService;
 using Services.AccountService;
 using System.Net;
 
