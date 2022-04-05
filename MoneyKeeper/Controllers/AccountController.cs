@@ -66,6 +66,15 @@ namespace MoneyKeeper.Controllers
             return new StandardResponse<AccountResponse>(HttpStatusCode.OK, account, "Success").Result;
         }
 
+        [HttpGet("UserAccounts/{id}")]
+        public async Task<IActionResult> GetAccountsByUserId(int id)
+        {
+            var accounts= await _accountService.GetAccountsByUserId(id);
+
+            //TODO: пооверка на id?
+            return new StandardResponse<List<AccountResponse>>(HttpStatusCode.OK, accounts, "Success").Result;
+        }
+
         [HttpPost("UpdateAccount")]
         public async Task<IActionResult> UpdateAccount([FromBody] AccountUpdateRequest request)
         {

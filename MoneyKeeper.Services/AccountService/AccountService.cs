@@ -37,6 +37,14 @@ namespace MoneyKeeper.Services.AccountService
             return result;
         }
 
+        public async Task<List<AccountResponse>> GetAccountsByUserId(int id)
+        {
+            var accounts = _context.Accounts.Where(account => account.UserId == id && !account.IsDeleted);
+            var result = await accounts.Select(account => _mapper.Map<AccountResponse>(account)).ToListAsync();
+
+            return result;
+        }
+
         public async Task MarkAccountAsDeleted(int id)
         {
             var account = await _context.Accounts.SingleAsync(account => account.Id == id);

@@ -7,6 +7,7 @@ namespace Services.AccountService
     {
         Task<AccountResponse> CreateAccount(AccountCreateRequest request);
         Task<AccountResponse> GetAccountById(int id);
+        Task<List<AccountResponse>> GetAccountsByUserId(int id);
         Task<AccountResponse> UpdateAccount(AccountUpdateRequest request);
         Task MarkAccountAsDeleted(int id);
     }
