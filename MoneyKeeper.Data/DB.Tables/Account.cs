@@ -7,6 +7,7 @@ namespace MoneyKeeper.Data.DB.Tables
         [Key]
         public int Id { get; set; }
         [Required]
+        //TODO: unique for user
         public string Name { get; set; }
         [Required]
         public bool IsDeleted { get; set; } = false;

@@ -7,8 +7,10 @@ namespace MoneyKeeper.Data.DB.Tables
         [Key]
         public int Id { get; set; }
         [Required]
+        //TODO: unique
         public string Name { get; set; }
         [Required]
+        //TODO: unique
         public string ShortName { get; set; }
         [Required]
         public string Icon { get; set; }

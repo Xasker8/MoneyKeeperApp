@@ -7,6 +7,7 @@ namespace MoneyKeeper.Data.DB.Tables
         [Key]
         public int Id { get; set; }
         [Required]
+        //TODO: unique
         public string Name { get; set; }
         [Required]
         [Range(0, 2)]
